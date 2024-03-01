@@ -2,7 +2,7 @@
 ## Agent
 Entity that perceives its environment and acts upon that environment.
 ## State
-A confirguration of the agent and its environment.
+A configuration of the agent and its environment.
 ## Initial State
 The state in which the agent begins.
 ## Actions
@@ -35,5 +35,29 @@ A solution that has the lowest path cost among all solutions.
 A data structure that keeps track of:
 - A state
 - A parent (node that generated this node)
-- An action (action applited to parent to get node)
+- An action (action applied to parent to get node)
 - A path cost (from initial state to node)
+## Approach
+- Start with a frontier that contains the initial state.
+- Repeat:
+  - If the frontier empty, then there is no solution.
+  - Remove a node from the frontier.
+  - If that node contains a goal state, return the solution.
+  - Expand that node, add resulting nodes to the frontier.
+## Revised Approach
+- Start with a frontier that contains the initial state.
+- Start with an empty explored set.
+- Repeat:
+  - If the frontier is empty, then no solution.
+  - Remove a node from the frontier.
+  - If node contains goal state, return the solution.
+  - Add the node to the explored set.
+  - Expand node, add resulting nodes to the frontier if they aren't already in the frontier or the explored set.
+## Stack
+Last-in first-out data type
+## Depth-first Search
+Search algorithm that always expands the deepest node in the frontier
+## Breadth-first Search
+Search algorithm that always expands the shallowest node in the frontier
+## Queue
+First-in first-out data type
