@@ -68,11 +68,11 @@ Search strategy that uses problem-specific knowledge to find solutions more effi
 ## Greedy best-first Search
 Search algorithm that expands the node that closest to the goal, as estimated by a heuristic function h(n)
 ## A* Search
-Search algorithm that expands node with lowest value of $$g(n) + h(n)$$
+Search algorithm that expands node with lowest value of $g(n) + h(n)$
 
 $g(n)$ = cost to reach node
 $h(n)$ = estimated cost to goal
 
 Optimal if:
 - $h(n)$ is admissible (never overestimates the true cost), and:
-- $h(n)$ is consistent (for every node $n$ and successor $n$' with step cost $c$, $$h(n) <= h(n') + c$$)
+- $h(n)$ is consistent (for every node $n$ and successor $n$' with step cost $c$, $h(n) <= h(n') + c$)
