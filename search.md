@@ -8,12 +8,12 @@ The state in which the agent begins.
 ## Actions
 Choices that can be made in a state.
 ```
-actions(s) returns the set of actions that can be executed in state s.
+$actions(s)$ returns the set of actions that can be executed in state $s$.
 ```
 ## Transition Model
 A description of what state results from performing any applicable action in any state.
 ```
-results(s, a) returns the state resulting from performing action a in state s.
+$results(s, a)$ returns the state resulting from performing action a in state $s$.
 ```
 ## State Space
 The set of all states reachable from the initial state by any sequence of actions.
@@ -76,3 +76,28 @@ $h(n)$ = estimated cost to goal
 Optimal if:
 - $h(n)$ is admissible (never overestimates the true cost), and:
 - $h(n)$ is consistent (for every node $n$ and successor $n$' with step cost $c$, $h(n) <= h(n') + c$)
+## Adversarial Search
+A competing search, such as an enemy in a game
+## Minimax
+In terms of tic-tac-toe:
+- $MAX (X)$ aims to maximize score.
+- $MIN (O)$ aims to minimize score.
+### Given a state $s$:
+- $MAX$ picks action $a$ in $actions(s)$ that produces the highest value of $min-value(result(s, a))$
+- $MIN$ picks action $a$ in $actions(s)$ that produces the smallest value of $max-value(result(s, a))$
+
+```
+function max_value(state):
+  if terminal(state):
+    return utility(state)
+  v = -infinity
+  for action in actions(state):
+    v = max(v, min-value(result(state, action)))
+  return v
+```
+## Alpha-Beta Pruning
+- Saves computation by pruning off states that cannot return the desired value
+## Depth-Limited Minimax
+- After a certain number of moves, stop and not consider additional moves
+## Evaluation Function
+function that estimates the expected utility of the game from a given state
